@@ -15,7 +15,7 @@ if [ -d "$test_dir" ]; then
         echo "entering $i ..."
         cd $i
         if [ -f ".disabled" ]; then
-            echo "Skipping (disabled case)"
+            echo "    Skipping (disabled case)"
         else
             runscript=$(ls $run_prefix.*.$sys_type.sh)
             echo "    launching $runscript."
