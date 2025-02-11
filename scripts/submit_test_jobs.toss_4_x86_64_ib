@@ -1,0 +1,27 @@
+#!/bin/bash
+
+rootdir=$PWD
+echo "Current directory is $rootdir."
+test_dir="tests"
+
+sys_type=$SYS_TYPE
+jobscript_prefix="exaepi"
+
+if [ -d "$test_dir" ]; then
+
+    echo "\"tests\" directory exists, submitting jobs ..."
+
+    for i in $test_dir/*.$sys_type; do
+        echo "entering $i ..."
+        cd $i
+        jobscript=$(ls $jobscript_prefix.*.$sys_type.job)
+        echo "    submitting $jobscript."
+        sbatch $jobscript
+        cd $rootdir
+    done
+
+else
+
+    echo "ERROR: no tests directory!"
+
+fi

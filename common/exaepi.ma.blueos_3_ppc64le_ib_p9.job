@@ -1,0 +1,26 @@
+#!/bin/bash
+
+### LSF syntax
+#BSUB -nnodes 1       #number of nodes
+#BSUB -W 30           #walltime in minutes
+#BSUB -J exaepi       #name of job
+#BSUB -q pbatch       #queue to use
+#BSUB -e stderr.log   #stderr
+#BSUB -o stdout.log   #stdout
+
+### Shell scripting
+OUTFILE=out.${SYS_TYPE}.log
+
+EXEC=$(ls $EXAEPI_BUILD/bin/*agent*)
+echo "Executable file is ${EXEC}."
+
+INP=$(ls inputs*)
+echo "Input file is ${INP}."
+
+date; hostname
+echo -n 'JobID is '; echo $LSB_JOBID
+
+### Launch parallel executable
+rm -rf Backtrace* plt* cases* $OUTFILE output.dat *.core
+lrun -T 4 -M "-gpu" $EXEC $INP 2>&1 |tee $OUTFILE
+echo 'Done'
