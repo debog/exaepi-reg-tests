@@ -16,4 +16,4 @@ echo "Input file is ${INP}."
 
 rm -rf Backtrace* plt* cases* $OUTFILE output.dat *.core
 export CUDA_LAUNCH_BLOCKING=1
-lrun -T 1 -M "-gpu" compute-sanitizer --tool memcheck $EXEC $INP 2>&1 |tee $OUTFILE
+lrun -T 1 compute-sanitizer --tool memcheck $EXEC $INP 2>&1 |tee $OUTFILE

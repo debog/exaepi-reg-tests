@@ -14,5 +14,4 @@ NOMP=4
 
 export OMP_NUM_THREADS=$NOMP
 rm -rf Backtrace* plt* cases* $OUTFILE *.core output.dat
-#srun -N $NNODE -n $NPROC -p pdebug $EXEC $INP 2>&1 > $OUTFILE
-srun -N $NNODE -n $NPROC -p pdebug $EXEC $INP
+srun -N $NNODE -n $NPROC -p pdebug $EXEC $INP 2>&1 > $OUTFILE

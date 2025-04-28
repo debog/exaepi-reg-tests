@@ -15,5 +15,5 @@ INP=$(ls inputs*)
 echo "Input file is ${INP}."
 
 rm -rf Backtrace* plt* cases* $OUTFILE output.dat *.core
-#jsrun -M "-gpu" -n1 -r1 -a2 -g2 -c2 $EXEC $INP 2>&1 |tee $OUTFILE
-lrun -T 4 -M "-gpu" $EXEC $INP 2>&1 |tee $OUTFILE
+#jsrun -n1 -r1 -a2 -g2 -c2 $EXEC $INP 2>&1 |tee $OUTFILE
+lrun -T 4 $EXEC $INP 2>&1 |tee $OUTFILE
