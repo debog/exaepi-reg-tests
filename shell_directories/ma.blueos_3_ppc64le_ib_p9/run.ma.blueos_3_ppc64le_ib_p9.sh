@@ -1,1 +1,0 @@
-../../common/run.ma.blueos_3_ppc64le_ib_p9.sh
