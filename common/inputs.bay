@@ -16,5 +16,4 @@ disease.case_filename = "July4.cases"
 disease.nstrain = 2
 disease.p_trans = 0.20 0.30
 disease.p_asymp = 0.40 0.40
-disease.reduced_inf = 0.75 0.75
 disease.reinfect_prob = 0.0

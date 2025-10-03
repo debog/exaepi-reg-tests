@@ -16,7 +16,5 @@ agent.aggregated_diag_prefix = "cases"
 disease.initial_case_type = "file"
 disease.case_filename = "July4.cases"
 
-disease.nstrain = 1
 disease.p_trans = 0.20
 disease.p_asymp = 0.40
-disease.reduced_inf = 0.75

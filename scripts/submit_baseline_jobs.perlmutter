@@ -17,9 +17,9 @@ if [ -d "$baseline_dir" ]; then
         if [ -f ".disabled" ]; then
             echo "    Skipping (disabled case)"
         else
-            jobscript=$(ls $jobscript_prefix.*.$sys_type.job)
+            jobscript=$(ls $jobscript_prefix.*.$sys_type)
             echo "    submitting $jobscript."
-            bsub $jobscript
+            sbatch $jobscript
         fi
         cd $rootdir
     done
